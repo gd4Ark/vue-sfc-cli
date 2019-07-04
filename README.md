@@ -58,6 +58,12 @@ yarn build
 npx vue-sfc-cli --upgrade --files package.json
 ```
 
+额外更新多个文件使用`,`分割
+
+```sh
+npx vue-sfc-cli --upgrade --files package.json,README.md
+```
+
 ## Notice
 
 不建议在Windows下生成组件,因为`.sh`可能没有执行权限
