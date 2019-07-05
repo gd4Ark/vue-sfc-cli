@@ -6,13 +6,11 @@
 [![NPM License](https://img.shields.io/npm/l/vue-sfc-cli.svg)](https://github.com/FEMessage/vue-sfc-cli/blob/master/LICENSE)
 [![Automated Release Notes by gren](https://img.shields.io/badge/%F0%9F%A4%96-release%20notes-00B2EE.svg)](https://github-tools.github.io/github-release-notes/)
 
-🔨 组件研发利器，快速开发Vue单文件组件（SFC），随时集合自动化github workflow，随时准备发布至npm。
+vue-sfc-cli exists to provide the minimal setup necessary to compile a Vue Single File Component (SFC) into a form ready to share via npm.
 
-[English](./README-en.md)
+## Tutorial
 
-## 使用教程
-
-### 快速开始
+### Quick Start
 
 ```
 npx vue-sfc-cli
@@ -39,22 +37,24 @@ yarn build
 yarn publish
 ```
 
-### 参数选项
+###  Options
 
 ```
 -u, --upgrade
 ```
 
-根据 template目录下模板，生成新的文件，更新到当前组件中。使用的是覆盖策略，默认覆盖的文件定义在 update-files.js。常用于使用最新版本vue-sfc-cli对旧组件的配置进行升级
+According to the template under the templates directory, generate a new file, update the current component. 
+
+It is using the override policy, default overwrite file defined in update-files.js. Commonly used to upgrade the configuration of old components using the latest version of vue-sfc-cli
 
 ```
 # cd my-component
 npx vue-sfc-cli -u
 ```
 
-`—files`
+`—files` 
 
-如果想更新额外的文件，可以传此选项，后接文件名，多个文件使用 `,` 分隔
+If you want to update additional files, you can pass this option,  multiple files use `, ` to separate
 
 ```
 npx vue-sfc-cli -u --files package.json,.babelrc.js
@@ -62,17 +62,17 @@ npx vue-sfc-cli -u --files package.json,.babelrc.js
 
 `—test` 
 
-生成一个测试的组件模板，常用于ci环境测试。
+Generate a component template for testing, commonly used in CI .
 
 ```
 npx vue-sfc-cli --test
 ```
 
-### 示例文档
+### Sample Documentation
 
-在docs目录下，新建 `md` 文件，建议命名同样是kebab-case
+In the docs directory, create a new one `md` File, suggested naming style like kebab-case
 
-以上传组件[upload-to-ali](https://github.com/FEMessage/upload-to-ali)的 docs/draggable.md 文档为例 
+Take component [upload-to-ali](https://github.com/FEMessage/upload-to-ali) as an example, look at the markdown file docs/draggable. md 
 
 ```
 拖拽排序示例
@@ -97,17 +97,17 @@ export default {
 ​```
 ```
 
-`yarn dev` 时会转这个markdown文件就会换成demo，可以看到实际代码，还可以实时修改代码，让demo刷新
+`yarn dev` can turn this markdown file into live demo.  You can see the actual code and modify the code in real time to refresh the demo.
 
 ![image.png](https://cdn.nlark.com/yuque/0/2019/png/160590/1561702364721-6489a2cd-d21e-4382-b201-f9e6d1b5b022.png?x-oss-process=image/resize,w_1492)
 
-### API文档
+### API Documentation
 
-在vue文件里，编写注释，即可生成API文档。
+In the vue file, write comments to generate API documents.
 
-#### props
+#### Props
 
-在props里使用多行注释
+Use multiple lines of comments in props
 
 ```
 props: {
@@ -121,9 +121,9 @@ props: {
 }
 ```
 
-#### slot
+#### Slot
 
-在slot上一行，使用  @slot 开头的注释
+On the slot line, use the comment at the beginning of @ slot
 
 ```
 <!--@slot 自定义loading内容，默认类似 element-ui 的 v-loading -->
@@ -136,9 +136,9 @@ props: {
 </slot>
 ```
 
-#### event
+#### Event
 
-在emit事件上方，使用多行注释
+Use multi-line comments above the emit event
 
 ```
 /**
@@ -148,9 +148,9 @@ props: {
 this.$emit('loading', name)
 ```
 
-#### methods
+#### Methods
 
-在要公开显示的方法上方，使用多行注释，并添加 @public
+Above the method to be show in API doc, use multi-line comments and add @public
 
 ```
 /**
@@ -162,21 +162,21 @@ selectFiles() {
 },
 ```
 
-效果预览
+preview like this
 
 ![image.png](https://cdn.nlark.com/yuque/0/2019/png/160590/1562220787035-7da78cf9-ef5c-49d8-83b1-8cc296aa9add.png?x-oss-process=image/resize,w_1492)
 
 ![image.png](https://cdn.nlark.com/yuque/0/2019/png/160590/1562220837322-f67bca09-e910-47e8-aa74-32cde527a4c8.png?x-oss-process=image/resize,w_1492)
 
-### 引入第三方库 
+### Working with third-party library 
 
-以[Element-UI](https://element.eleme.io/)为例
+To [Element-UI](https://element.eleme.io/) As an example
 
 ```
 yarn add element-ui
 ```
 
-新增一个文件：`styleguide/element.js`
+Add a file: `styleguide/element.js`
 
 ```
 import Vue from 'vue'
@@ -185,7 +185,7 @@ import 'element-ui/lib/theme-chalk/index.css'
  Vue.use(Element)
 ```
 
-修改配置文件：`styleguide.config.js`
+Modify configuration files: `styleguide.config.js`
 
 ```
 module.exports = {
@@ -196,9 +196,9 @@ module.exports = {
 } 
 ```
 
-### 环境变量
+### Environment variable
 
-如果需要使用环境变量，推荐使用 `dotenv` 
+If you need to use environment variables, it is recommended to use `dotenv` 
 
 ```
 yarn add dotenv --dev
@@ -221,16 +221,16 @@ module.exports = {
 }
 ```
 
-### prettier and husky
+### Prettier and husky
 
-组件模板内置prettier, 可以在提交代码时格式化。
+The scaffold use husky as tool for precommit hook and prettier for formatting.
 
-注意的是需要先执行 `git init` 命令，之后再执行 `yarn` 安装依赖，否则提交钩子不生效。
+Make sure  `git init` has done, before running `yarn`, otherwise the husky will not work.
 
-### 注意
+### Notice
 
-不建议在Windows下生成组件,因为.sh可能没有执行权限。 
+Not recommended on init component on Windows.  because `. sh`  may  lost permission to execute.
 
-## 环境需求
+## requirement
 
 Node.js 8.x
