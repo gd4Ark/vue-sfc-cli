@@ -6,15 +6,15 @@
 [![NPM License](https://img.shields.io/npm/l/vue-sfc-cli.svg)](https://github.com/FEMessage/vue-sfc-cli/blob/master/LICENSE)
 [![Automated Release Notes by gren](https://img.shields.io/badge/%F0%9F%A4%96-release%20notes-00B2EE.svg)](https://github-tools.github.io/github-release-notes/)
 
-vue-sfc-cli exists to provide the minimal setup necessary to compile a Vue Single File Component (SFC) into a form ready to share via npm.
+🔨 组件研发利器，快速开发Vue单文件组件（SFC），随时集合自动化github workflow，随时准备发布至npm。
 
-[for detail look at this article](https://github.com/levy9527/blog/issues/2)
+[English](./README-en.md)
 
-## requirement
-Node.js 8.x
+## 使用教程
 
-## Usage
-```bash
+### 快速开始
+
+```
 npx vue-sfc-cli
 
 # 接下来会有一串的提示，请务必填写
@@ -23,70 +23,188 @@ npx vue-sfc-cli
 # 填充完提示后
 cd my-component
 
-# to use precommit hook
+# 使用git初始化，这样可以使用commit hook
 git init
 
-# install dependencies
+# 安装依赖
 yarn
 
-# develop your sfc
+# 开始开发
 yarn dev
 
-# build your sfc
+# 打包
 yarn build
 
-# Ready to publish!
+# 可以发布了！
+yarn publish
 ```
 
-## Cli options
+### 参数选项
 
-### `--test`
-
-用于生成一个测试的组件模板
-
-### `-u, --upgrade`
-
-更新当前项目基本配置
-
-### `--files`
-
-- Type: `string`
-
-额外更新的文件, 以更新组件为例:
-
-```sh
-npx vue-sfc-cli --upgrade --files package.json
+```
+-u, --upgrade
 ```
 
-额外更新多个文件使用`,`分割
+根据 template目录下模板，生成新的文件，更新到当前组件中。使用的是覆盖策略，默认覆盖的文件定义在 update-files.js。常用于使用最新版本vue-sfc-cli对旧组件的配置进行升级
 
-```sh
-npx vue-sfc-cli --upgrade --files package.json,README.md
+```
+# cd my-component
+npx vue-sfc-cli -u
 ```
 
-## Notice
+`—files`
 
-不建议在Windows下生成组件,因为`.sh`可能没有执行权限
+如果想更新额外的文件，可以传此选项，后接文件名，多个文件使用 `,` 分隔
 
-## docs
+```
+npx vue-sfc-cli -u --files package.json,.babelrc.js
+```
 
-You can write *.md files host in `docs/` as code example.
+`—test` 
 
-When you run `yarn dev` these markdown files will become live demos.
+生成一个测试的组件模板，常用于ci环境测试。
 
-Every time you add a new *.md file, you should re-run `yarn dev` to load new *.md file.
+```
+npx vue-sfc-cli --test
+```
 
-## dotenv
+### 示例文档
 
-You might wanna use environment variable while development.
+在docs目录下，新建 `md` 文件，建议命名同样是kebab-case
 
-According to best practice, encourage using `dotenv` to config environment variable.
+以上传组件[upload-to-ali](https://github.com/FEMessage/upload-to-ali)的 docs/draggable.md 文档为例 
 
-```sh
+```
+拖拽排序示例
+
+​```vue
+<template>
+  <upload-to-ali :preview="false" v-model="url" multiple />
+</template>
+<script>
+export default {
+  data() {
+    return {
+      url: [
+        'https://picsum.photos/300/300',
+        'https://picsum.photos/400/400',
+        'https://picsum.photos/555/555'
+      ],
+    }
+  }
+}
+</script>
+​```
+```
+
+`yarn dev` 时会转这个markdown文件就会换成demo，可以看到实际代码，还可以实时修改代码，让demo刷新
+
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/160590/1561702364721-6489a2cd-d21e-4382-b201-f9e6d1b5b022.png?x-oss-process=image/resize,w_1492)
+
+### API文档
+
+在vue文件里，编写注释，即可生成API文档。
+
+#### props
+
+在props里使用多行注释
+
+```
+props: {
+    /**
+     * 是否多选
+     */
+    multiple: {
+      type: Boolean,
+      default: false
+    },
+}
+```
+
+#### slot
+
+在slot上一行，使用  @slot 开头的注释
+
+```
+<!--@slot 自定义loading内容，默认类似 element-ui 的 v-loading -->
+<slot name="spinner">
+  <div class="upload-loading">
+    <svg class="circular" viewBox="25 25 50 50">
+      <circle class="path" cx="50" cy="50" r="20" fill="none"></circle>
+    </svg>
+  </div>
+</slot>
+```
+
+#### event
+
+在emit事件上方，使用多行注释
+
+```
+/**
+ * 上传过程中
+ * @property {string} name - 当前上传的图片名称
+ */
+this.$emit('loading', name)
+```
+
+#### methods
+
+在要公开显示的方法上方，使用多行注释，并添加 @public
+
+```
+/**
+ * 手动触发选择文件事件
+ * @public
+ */
+selectFiles() {
+  this.$refs.uploadInput.click()
+},
+```
+
+效果预览
+
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/160590/1562220787035-7da78cf9-ef5c-49d8-83b1-8cc296aa9add.png?x-oss-process=image/resize,w_1492)
+
+![image.png](https://cdn.nlark.com/yuque/0/2019/png/160590/1562220837322-f67bca09-e910-47e8-aa74-32cde527a4c8.png?x-oss-process=image/resize,w_1492)
+
+### 引入第三方库 
+
+以[Element-UI](https://element.eleme.io/)为例
+
+```
+yarn add element-ui
+```
+
+新增一个文件：`styleguide/element.js`
+
+```
+import Vue from 'vue'
+import Element from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+ Vue.use(Element)
+```
+
+修改配置文件：`styleguide.config.js`
+
+```
+module.exports = {
+  // ...
+  require: [
+    './styleguide/element.js'
+  ]
+} 
+```
+
+### 环境变量
+
+如果需要使用环境变量，推荐使用 `dotenv` 
+
+```
 yarn add dotenv --dev
 ```
 
-```js
+```
 // styleguide.config.js
 const webpack = require('webpack')
 const dotenv = require('dotenv')
@@ -103,37 +221,16 @@ module.exports = {
 }
 ```
 
-## Working with 3rd-party library
+### prettier and husky
 
-e.g. [Element-UI](https://element.eleme.io)
+组件模板内置prettier, 可以在提交代码时格式化。
 
-Install element-ui:
+注意的是需要先执行 `git init` 命令，之后再执行 `yarn` 安装依赖，否则提交钩子不生效。
 
-```console
-yarn add element-ui
-```
+### 注意
 
-In your `styleguide/element.js`
+不建议在Windows下生成组件,因为.sh可能没有执行权限。 
 
-```js
-import Vue from 'vue'
-import Elm from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
- Vue.use(Elm)
-```
+## 环境需求
 
-In your `styleguide.config.js`
-
-```js
-module.exports = {
-  // ...
-  require: [
-    './styleguide/element.js'
-  ]
-}	
-```
-
-## prettier and precommit hook
-
-the generated scaffold use husky as tool for precommit hook, but it require you has `git init` first, that's why `git init` running before
-`yarn`
+Node.js 8.x
