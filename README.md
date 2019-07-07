@@ -6,7 +6,7 @@
 [![NPM License](https://img.shields.io/npm/l/vue-sfc-cli.svg)](https://github.com/FEMessage/vue-sfc-cli/blob/master/LICENSE)
 [![Automated Release Notes by gren](https://img.shields.io/badge/%F0%9F%A4%96-release%20notes-00B2EE.svg)](https://github-tools.github.io/github-release-notes/)
 
-🔨 组件研发利器，快速开发Vue单文件组件（SFC），随时集合自动化github workflow，随时准备发布至npm。
+🔨 组件研发利器，快速开发Vue单文件组件（SFC），内置最佳实践，集成自动化github workflow，随时准备发布npm。
 
 [English](./README-en.md)
 
