@@ -2,26 +2,24 @@ const {VueLoaderPlugin} = require('vue-loader')
 const path = require('path')
 const glob = require('glob')
 
-const demos = glob.sync('docs/!(basic).md')
-const demoSections = [
-  {
-    name: 'basic',
-    content: 'docs/basic.md'
-  }
-].concat(
-  demos.map(filePath => ({
-    name: path.basename(filePath, '.md'),
-    content: filePath
-  }))
-)
-
-module.exports = {
-  styleguideDir: 'docs',
-  pagePerSection: true,
-  ribbon: {
-    url: 'https://github.com/{{ownerName}}/{{componentName}}'
-  },
-  sections: [
+const sections = (() => {
+  const docs = glob
+    .sync('docs/*.md')
+    .map(p => ({name: path.basename(p, '.md'), content: p}))
+  const demos = []
+  let faq = '' // 约定至多只有一个faq.md
+  const guides = []
+  docs.forEach(d => {
+    if (/^faq$/i.test(d.name)) {
+      d.name = d.name.toUpperCase()
+      faq = d
+    } else if (/^guide-/.test(d.name)) {
+      guides.push(d)
+    } else {
+      demos.push(d)
+    }
+  })
+  return [
     {
       name: 'Components',
       components: 'src/*.vue',
@@ -29,9 +27,23 @@ module.exports = {
     },
     {
       name: 'Demo',
-      sections: demoSections
+      sections: demos
+    },
+    ...(faq ? [faq] : []),
+    {
+      name: 'Guide',
+      sections: guides
     }
-  ],
+  ]
+})()
+
+module.exports = {
+  styleguideDir: 'docs',
+  pagePerSection: true,
+  ribbon: {
+    url: 'https://github.com/{{ownerName}}/{{componentName}}'
+  },
+  sections,
   webpackConfig: {
     module: {
       rules: [
@@ -58,8 +70,6 @@ module.exports = {
         }
       ]
     },
-    plugins: [
-      new VueLoaderPlugin()
-    ]
+    plugins: [new VueLoaderPlugin()]
   }
 }
