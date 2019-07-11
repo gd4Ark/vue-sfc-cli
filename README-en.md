@@ -6,7 +6,7 @@
 [![NPM License](https://img.shields.io/npm/l/vue-sfc-cli.svg)](https://github.com/FEMessage/vue-sfc-cli/blob/master/LICENSE)
 [![Automated Release Notes by gren](https://img.shields.io/badge/%F0%9F%A4%96-release%20notes-00B2EE.svg)](https://github-tools.github.io/github-release-notes/)
 
-vue-sfc-cli exists to provide the minimal setup necessary to compile a Vue Single File Component (SFC) into a form ready to share via npm.
+vue-sfc-cli exists to provide rich setup to develop a Vue Single File Component (SFC) quickly, writing docs and demo easily, integrated with an automated github workflow, and always ready to publish to npm with best practices.
 
 ## Tutorial
 
@@ -15,52 +15,51 @@ vue-sfc-cli exists to provide the minimal setup necessary to compile a Vue Singl
 ```
 npx vue-sfc-cli
 
-# 接下来会有一串的提示，请务必填写
-# 推荐kebab-case风格，小写字母，多个单词用-（dash）分隔，如my-component
+# Next there will be a bunch of tips, please be sure to fill out
+# Recommend kebab-case style, lowercase letters, multiple words separated by - (dash), such as my-component
 
-# 填充完提示后
+# After filling the prompt
 cd my-component
 
-# 使用git初始化，这样可以使用commit hook
+# Use git to initialize, so you can use the commit hook
 git init
 
-# 安装依赖
+# Install dependency
 yarn
 
-# 开始开发
+# Develop component
 yarn dev
 
-# 打包
+# Build
 yarn build
 
-# 可以发布了！
+# Ready to publish!
+# Or use `npm publish`
 yarn publish
 ```
 
-###  Options
+### Options
 
 ```
 -u, --upgrade
 ```
 
-According to the template under the templates directory, generate a new file, update the current component. 
-
-It is using the override policy, default overwrite file defined in update-files.js. Commonly used to upgrade the configuration of old components using the latest version of vue-sfc-cli
+According to the template files in the templates directory, new files will be generated and override the files with same name in current component directory. The default override files is defined in update-files.js. This option often used to upgrade the configuration of old components using the latest version of vue-sfc-cli：
 
 ```
 # cd my-component
 npx vue-sfc-cli -u
 ```
 
-`—files` 
+`—files`
 
-If you want to update additional files, you can pass this option,  multiple files use `, ` to separate
+If you want to update additional files, you can pass this option, multiple files use `,` to separate
 
 ```
 npx vue-sfc-cli -u --files package.json,.babelrc.js
 ```
 
-`—test` 
+`—test`
 
 Generate a component template for testing, commonly used in CI .
 
@@ -68,13 +67,13 @@ Generate a component template for testing, commonly used in CI .
 npx vue-sfc-cli --test
 ```
 
-### Sample Documentation
+### Writing Example
 
-In the docs directory, create a new one `md` File, suggested naming style like kebab-case
+The docs directory hosts your component's examples. You just write markdown files, and they will turn into demo. It is also recommended to name the markdown files in kebab-case style.
 
-Take component [upload-to-ali](https://github.com/FEMessage/upload-to-ali) as an example, look at the markdown file docs/draggable. md 
+Take the docs/draggable.md file of [upload-to-ali](https://github.com/FEMessage/upload-to-ali), the upload component as an example.
 
-```
+````
 拖拽排序示例
 
 ​```vue
@@ -95,15 +94,15 @@ export default {
 }
 </script>
 ​```
-```
+````
 
-`yarn dev` can turn this markdown file into live demo.  You can see the actual code and modify the code in real time to refresh the demo.
+`yarn dev` can turn this markdown file into live demo, which will show you what the component looks like and it's actual code. You can also modify the code and the demo can hot reload.
 
 ![image.png](https://cdn.nlark.com/yuque/0/2019/png/160590/1561702364721-6489a2cd-d21e-4382-b201-f9e6d1b5b022.png?x-oss-process=image/resize,w_1492)
 
 ### API Documentation
 
-In the vue file, write comments to generate API documents.
+You can simply write comments in vue file to generate API documentation.
 
 #### Props
 
@@ -168,7 +167,7 @@ preview like this
 
 ![image.png](https://cdn.nlark.com/yuque/0/2019/png/160590/1562220837322-f67bca09-e910-47e8-aa74-32cde527a4c8.png?x-oss-process=image/resize,w_1492)
 
-### Working with third-party library 
+### Working with third-party library
 
 To [Element-UI](https://element.eleme.io/) As an example
 
@@ -193,12 +192,12 @@ module.exports = {
   require: [
     './styleguide/element.js'
   ]
-} 
+}
 ```
 
 ### Environment variable
 
-If you need to use environment variables, it is recommended to use `dotenv` 
+If you need to use environment variables, it is recommended to use `dotenv`
 
 ```
 yarn add dotenv --dev
@@ -223,13 +222,13 @@ module.exports = {
 
 ### Prettier and husky
 
-The scaffold use husky as tool for precommit hook and prettier for formatting.
+The component template has a built-in prettier and husky setup that can format code when you commit.
 
-Make sure  `git init` has done, before running `yarn`, otherwise the husky will not work.
+However, you need to execute the git init command before running yarn ,otherwise the commit hook will not take effect.
 
 ### Notice
 
-Not recommended on init component on Windows.  because `. sh`  may  lost permission to execute.
+It is not recommended to generate components under Windows, as `.sh` files may lost execution permissions.
 
 ## requirement
 
