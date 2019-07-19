@@ -30,10 +30,7 @@ const sections = (() => {
       sections: demos
     },
     ...(faq ? [faq] : []),
-    {
-      name: 'Guide',
-      sections: guides
-    }
+    ...(guides.length ? [{name: 'Guide', sections: guides}] : [])
   ]
 })()
 
