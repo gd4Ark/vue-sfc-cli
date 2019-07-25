@@ -27,7 +27,8 @@ const sections = (() => {
     },
     {
       name: 'Demo',
-      sections: demos
+      sections: demos,
+      sectionDepth: 2
     },
     ...(faq ? [faq] : []),
     ...(guides.length ? [{name: 'Guide', sections: guides}] : [])
