@@ -18,7 +18,7 @@
   },
   "scripts": {
     "dev": "vue-styleguidist server",
-    "test": "jest",
+    "test": "jest --verbose",
     "doc": "vue-styleguidist build",
     "build":
       "npm run build:unpkg & npm run build:es & npm run build:umd & npm run doc",
