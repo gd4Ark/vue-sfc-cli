@@ -7,30 +7,30 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/{{ownerName}}/{{componentName}}/pulls)
 [![Automated Release Notes by gren](https://img.shields.io/badge/%F0%9F%A4%96-release%20notes-00B2EE.svg)](https://github-tools.github.io/github-release-notes/)
 
-项目简要说明 + 示例图
+short description + sample image(png/gif/mp4)
 
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Feature](#feature)
-- [Demo](#demo)
+- [Features](#features)
+- [Links](#links)
 - [Install](#install)
-- [Example](#example)
-- [Reference](#reference)
 - [Contributors](#contributors)
 - [License](#license)
 
 ## Introduction
 
-[⬆ Back to Top](#table-of-contents)
-
-## Feature
+If there is no more words to write, this section can be deleted.
 
 [⬆ Back to Top](#table-of-contents)
 
-## Demo
+## Features
 
-* [doc and online demo](https://{{ownerName}}.github.io/{{componentName}}/)
+[⬆ Back to Top](#table-of-contents)
+
+## Links
+
+- [docs](https://{{ownerName}}.github.io/{{componentName}}/)
 
 [⬆ Back to Top](#table-of-contents)
 
@@ -38,11 +38,16 @@
 
 [⬆ Back to Top](#table-of-contents)
 
-## Example
+## Contributing
 
-[⬆ Back to Top](#table-of-contents)
+For those who are interested in contributing to this project, such as:
 
-## Reference
+- report a bug
+- request new feature
+- fix a bug
+- implement a new feature
+
+Please refer to our [contributing guide](https://github.com/FEMessage/.github/blob/master/CONTRIBUTING.md).
 
 [⬆ Back to Top](#table-of-contents)
 
