@@ -1,9 +1,9 @@
 # vue-sfc-cli
 
-[![Build Status](https://travis-ci.com/FEMessage/vue-sfc-cli.svg?branch=master)](https://travis-ci.com/FEMessage/vue-sfc-cli)
-[![NPM Download](https://img.shields.io/npm/dm/vue-sfc-cli.svg)](https://www.npmjs.com/package/vue-sfc-cli)
-[![NPM Version](https://img.shields.io/npm/v/vue-sfc-cli.svg)](https://www.npmjs.com/package/vue-sfc-cli)
-[![NPM License](https://img.shields.io/npm/l/vue-sfc-cli.svg)](https://github.com/FEMessage/vue-sfc-cli/blob/master/LICENSE)
+[![Build Status](https://badgen.net/travis/FEMessage/vue-sfc-cli/master)](https://travis-ci.com/FEMessage/vue-sfc-cli)
+[![NPM Download](https://badgen.net/npm/dm/vue-sfc-cli)](https://www.npmjs.com/package/vue-sfc-cli)
+[![NPM Version](https://badgen.net/npm/v/vue-sfc-cli)](https://www.npmjs.com/package/vue-sfc-cli)
+[![NPM License](https://badgen.net/npm/license/vue-sfc-cli)](https://github.com/FEMessage/vue-sfc-cli/blob/master/LICENSE)
 [![Automated Release Notes by gren](https://img.shields.io/badge/%F0%9F%A4%96-release%20notes-00B2EE.svg)](https://github-tools.github.io/github-release-notes/)
 
 vue-sfc-cli is a powerful tool for developing vue single-file component. 
