@@ -9,7 +9,7 @@
     "url": "https://github.com/{{ownerName}}/{{componentName}}.git"
   },
   "keywords": ["vue", "sfc", "component"],
-  "files": ["src", "dist", "yarn.lock"],
+  "files": ["src", "dist"],
   "main": "dist/{{componentName}}.umd.js",
   "module": "dist/{{componentName}}.esm.js",
   "unpkg": "dist/{{componentName}}.min.js",

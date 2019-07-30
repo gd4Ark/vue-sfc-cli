@@ -1,51 +1,57 @@
 # vue-sfc-cli
 
-[![Build Status](https://travis-ci.com/FEMessage/vue-sfc-cli.svg?branch=master)](https://travis-ci.com/FEMessage/vue-sfc-cli)
-[![NPM Download](https://img.shields.io/npm/dm/vue-sfc-cli.svg)](https://www.npmjs.com/package/vue-sfc-cli)
-[![NPM Version](https://img.shields.io/npm/v/vue-sfc-cli.svg)](https://www.npmjs.com/package/vue-sfc-cli)
-[![NPM License](https://img.shields.io/npm/l/vue-sfc-cli.svg)](https://github.com/FEMessage/vue-sfc-cli/blob/master/LICENSE)
+[![Build Status](https://badgen.net/travis/FEMessage/vue-sfc-cli/master)](https://travis-ci.com/FEMessage/vue-sfc-cli)
+[![NPM Download](https://badgen.net/npm/dm/vue-sfc-cli)](https://www.npmjs.com/package/vue-sfc-cli)
+[![NPM Version](https://badgen.net/npm/v/vue-sfc-cli)](https://www.npmjs.com/package/vue-sfc-cli)
+[![NPM License](https://badgen.net/npm/license/vue-sfc-cli)](https://github.com/FEMessage/vue-sfc-cli/blob/master/LICENSE)
 [![Automated Release Notes by gren](https://img.shields.io/badge/%F0%9F%A4%96-release%20notes-00B2EE.svg)](https://github-tools.github.io/github-release-notes/)
 
-🔨 组件研发利器，快速开发Vue单文件组件（SFC），内置最佳实践，集成自动化github workflow，随时准备发布npm。
+vue-sfc-cli is a powerful tool for developing vue single-file component. 
 
-[English](./README-en.md)
+It makes writing docs and demo easily, integrated with an automated github workflow, and is always ready to publish to npm with best practices.
 
-## 使用教程
+## Links
 
-### 快速开始
+- [medium article](https://medium.com/deepexi/reveal-the-secret-of-vue-sfc-cli-69f0f21dbad3)
+- [中文文档](./README-zh.md)
+
+## Tutorial
+
+### Quick Start
 
 ```
 npx vue-sfc-cli
 
-# 接下来会有一串的提示，请务必填写
-# 推荐kebab-case风格，小写字母，多个单词用-（dash）分隔，如my-component
+# Next there will be a bunch of tips, please be sure to fill out
+# Recommend kebab-case style, lowercase letters, multiple words separated by - (dash), such as my-component
 
-# 填充完提示后
+# After filling the prompt
 cd my-component
 
-# 使用git初始化，这样可以使用commit hook
+# Use git to initialize, so you can use the commit hook
 git init
 
-# 安装依赖
+# Install dependency
 yarn
 
-# 开始开发
+# Develop component
 yarn dev
 
-# 打包
+# Build
 yarn build
 
-# 可以发布了！
+# Ready to publish!
+# Or use `npm publish`
 yarn publish
 ```
 
-### 参数选项
+### Options
 
 ```
 -u, --upgrade
 ```
 
-根据 template目录下模板，生成新的文件，更新到当前组件中。使用的是覆盖策略，默认覆盖的文件定义在 update-files.js。常用于使用最新版本vue-sfc-cli对旧组件的配置进行升级
+According to the template files in the templates directory, new files will be generated and override the files with same name in current component directory. The default override files is defined in update-files.js. This option often used to upgrade the configuration of old components using the latest version of vue-sfc-cli：
 
 ```
 # cd my-component
@@ -54,28 +60,28 @@ npx vue-sfc-cli -u
 
 `—files`
 
-如果想更新额外的文件，可以传此选项，后接文件名，多个文件使用 `,` 分隔
+If you want to update additional files, you can pass this option, multiple files use `,` to separate
 
 ```
 npx vue-sfc-cli -u --files package.json,.babelrc.js
 ```
 
-`—test` 
+`—test`
 
-生成一个测试的组件模板，常用于ci环境测试。
+Generate a component template for testing, commonly used in CI .
 
 ```
 npx vue-sfc-cli --test
 ```
 
-### 示例文档
+### Writing Example
 
-在docs目录下，新建 `md` 文件，建议命名同样是kebab-case
+The docs directory hosts your component's examples. You just write markdown files, and they will turn into demo. It is also recommended to name the markdown files in kebab-case style.
 
-以上传组件[upload-to-ali](https://github.com/FEMessage/upload-to-ali)的 docs/draggable.md 文档为例 
+Take the docs/draggable.md file of [upload-to-ali](https://github.com/FEMessage/upload-to-ali), the upload component as an example.
 
-```
-拖拽排序示例
+````
+draggable example
 
 ​```vue
 <template>
@@ -95,24 +101,24 @@ export default {
 }
 </script>
 ​```
-```
+````
 
-`yarn dev` 时会转这个markdown文件就会换成demo，可以看到实际代码，还可以实时修改代码，让demo刷新
+`yarn dev` can turn this markdown file into live demo, which will show you what the component looks like and it's actual code. You can also modify the code and the demo can hot reload.
 
 ![image.png](https://cdn.nlark.com/yuque/0/2019/png/160590/1561702364721-6489a2cd-d21e-4382-b201-f9e6d1b5b022.png?x-oss-process=image/resize,w_1492)
 
-### API文档
+### API Documentation
 
-在vue文件里，编写注释，即可生成API文档。
+You can simply write comments in vue file to generate API documentation.
 
-#### props
+#### Props
 
-在props里使用多行注释
+Use multiple lines of comments in props
 
 ```
 props: {
     /**
-     * 是否多选
+     * is upload multiple files
      */
     multiple: {
       type: Boolean,
@@ -121,12 +127,12 @@ props: {
 }
 ```
 
-#### slot
+#### Slot
 
-在slot上一行，使用  @slot 开头的注释
+On the slot line, use the comment at the beginning of @ slot
 
 ```
-<!--@slot 自定义loading内容，默认类似 element-ui 的 v-loading -->
+<!--@slot custom loading content -->
 <slot name="spinner">
   <div class="upload-loading">
     <svg class="circular" viewBox="25 25 50 50">
@@ -136,25 +142,24 @@ props: {
 </slot>
 ```
 
-#### event
+#### Event
 
-在emit事件上方，使用多行注释
+Use multi-line comments above the emit event
 
 ```
 /**
- * 上传过程中
- * @property {string} name - 当前上传的图片名称
+ * @property {string} name - file name
  */
 this.$emit('loading', name)
 ```
 
-#### methods
+#### Methods
 
-在要公开显示的方法上方，使用多行注释，并添加 @public
+Above the method to be show in API doc, use multi-line comments and add @public
 
 ```
 /**
- * 手动触发选择文件事件
+ * trigger select files
  * @public
  */
 selectFiles() {
@@ -162,21 +167,21 @@ selectFiles() {
 },
 ```
 
-效果预览
+preview like this
 
 ![image.png](https://cdn.nlark.com/yuque/0/2019/png/160590/1562220787035-7da78cf9-ef5c-49d8-83b1-8cc296aa9add.png?x-oss-process=image/resize,w_1492)
 
 ![image.png](https://cdn.nlark.com/yuque/0/2019/png/160590/1562220837322-f67bca09-e910-47e8-aa74-32cde527a4c8.png?x-oss-process=image/resize,w_1492)
 
-### 引入第三方库 
+### Working with third-party library
 
-以[Element-UI](https://element.eleme.io/)为例
+To [Element-UI](https://element.eleme.io/) As an example
 
 ```
 yarn add element-ui
 ```
 
-新增一个文件：`styleguide/element.js`
+Add a file: `styleguide/element.js`
 
 ```
 import Vue from 'vue'
@@ -185,7 +190,7 @@ import 'element-ui/lib/theme-chalk/index.css'
  Vue.use(Element)
 ```
 
-修改配置文件：`styleguide.config.js`
+Modify configuration files: `styleguide.config.js`
 
 ```
 module.exports = {
@@ -193,12 +198,12 @@ module.exports = {
   require: [
     './styleguide/element.js'
   ]
-} 
+}
 ```
 
-### 环境变量
+### Environment variable
 
-如果需要使用环境变量，推荐使用 `dotenv` 
+If you need to use environment variables, it is recommended to use `dotenv`
 
 ```
 yarn add dotenv --dev
@@ -221,16 +226,16 @@ module.exports = {
 }
 ```
 
-### prettier and husky
+### Prettier and husky
 
-组件模板内置prettier, 可以在提交代码时格式化。
+The component template has a built-in prettier and husky setup that can format code when you commit.
 
-注意的是需要先执行 `git init` 命令，之后再执行 `yarn` 安装依赖，否则提交钩子不生效。
+However, you need to execute the git init command before running yarn ,otherwise the commit hook will not take effect.
 
-### 注意
+### Notice
 
-不建议在Windows下生成组件,因为.sh可能没有执行权限。 
+It is not recommended to generate components under Windows, as `.sh` files may lost execution permissions.
 
-## 环境需求
+## requirement
 
 Node.js 8.x
