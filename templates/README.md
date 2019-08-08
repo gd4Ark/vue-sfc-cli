@@ -15,6 +15,7 @@ short description + sample image(png/gif/mp4)
 - [Features](#features)
 - [Links](#links)
 - [Install](#install)
+- [Contributing](#contributing)
 - [Contributors](#contributors)
 - [License](#license)
 
