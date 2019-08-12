@@ -10,6 +10,25 @@ vue-sfc-cli is a powerful tool for developing vue single-file component.
 
 It makes writing docs and demo easily, integrated with an automated github workflow, and is always ready to publish to npm with best practices.
 
+## Table Of Contents
+
+- [Links](#links)
+- [Tutorial](#tutorial)
+  - [Quick Start](#quick-start)
+  - [Options](#options)
+  - [Writing Example](#writing-example)
+  - [API Documentation](#api-documentation)
+    - [Props](#props)
+    - [Slot](#slot)
+    - [Event](#event)
+    - [Methods](#methods)
+  - [Working with third-party library](#working-with-third-party-library)
+  - [Environment variable](#environment-variable)
+  - [Prettier and husky](#prettier-and-husky)
+  - [Notice](#notice)
+- [requirement](#requirement)
+- [Contributors](#contributors)
+
 ## Links
 
 - [medium article](https://medium.com/deepexi/reveal-the-secret-of-vue-sfc-cli-69f0f21dbad3)
