@@ -10,7 +10,6 @@ resp_tmp_file=resp.tmp
 
 curl -H "Authorization: token $GITHUB_TOKEN" $url > $resp_tmp_file
 
-
 html_url=$(sed -n 5p $resp_tmp_file | sed 's/\"html_url\"://g' | awk -F '"' '{print $2}')
 body=$(grep body < $resp_tmp_file | sed 's/\"body\"://g;s/\"//g')
 
