@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.10.8](https://github.com/FEMessage/vue-sfc-cli/compare/v1.10.7...v1.10.8) (2019-08-12)
+
+
+
 ### [1.10.7](https://github.com/FEMessage/vue-sfc-cli/compare/v1.10.6...v1.10.7) (2019-08-08)
 
 
