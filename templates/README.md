@@ -13,8 +13,9 @@ short description + sample image(png/gif/mp4)
 
 - [Introduction](#introduction)
 - [Features](#features)
-- [Links](#links)
 - [Install](#install)
+- [Usage](#usage)
+- [Links](#links)
 - [Contributing](#contributing)
 - [Contributors](#contributors)
 - [License](#license)
@@ -29,13 +30,17 @@ If there is no more words to write, this section can be deleted.
 
 [⬆ Back to Top](#table-of-contents)
 
-## Links
-
-- [docs](https://{{ownerName}}.github.io/{{componentName}}/)
+## Install
 
 [⬆ Back to Top](#table-of-contents)
 
-## Install
+## Usage
+
+[⬆ Back to Top](#table-of-contents)
+
+## Links
+
+- [docs](https://{{ownerName}}.github.io/{{componentName}}/)
 
 [⬆ Back to Top](#table-of-contents)
 
