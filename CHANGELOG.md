@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.10.9](https://github.com/FEMessage/vue-sfc-cli/compare/v1.10.8...v1.10.9) (2019-10-11)
+
+
+### Bug Fixes
+
+* `Vue.use` doesn't work ([#90](https://github.com/FEMessage/vue-sfc-cli/issues/90)) ([6f2d58e](https://github.com/FEMessage/vue-sfc-cli/commit/6f2d58e)), closes [#89](https://github.com/FEMessage/vue-sfc-cli/issues/89)
+
+
+
 ### [1.10.8](https://github.com/FEMessage/vue-sfc-cli/compare/v1.10.7...v1.10.8) (2019-08-12)
 
 
