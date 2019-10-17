@@ -2,7 +2,7 @@
 
 [![Build Status](https://badgen.net/travis/{{ownerName}}/{{componentName}}/master)](https://travis-ci.com/{{ownerName}}/{{componentName}})
 [![NPM Download](https://badgen.net/npm/dm/@{{ownerNameLowerCase}}/{{componentName}})](https://www.npmjs.com/package/@{{ownerNameLowerCase}}/{{componentName}})
-[![NPM Version](https://badgen.net/npm/v/@{{ownerNameLowerCase}}/{{componentName}})](https://www.npmjs.com/package/@{{ownerNameLowerCase}}/{{componentName}})
+[![NPM Version](https://badge.fury.io/js/%40{{ownerNameLowerCase}}%2F{{componentName}}.svg)](https://badge.fury.io/js/%40{{ownerNameLowerCase}}%2F{{componentName}})
 [![NPM License](https://badgen.net/npm/license/@{{ownerNameLowerCase}}/{{componentName}})](https://github.com/{{ownerName}}/{{componentName}}/blob/master/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/{{ownerName}}/{{componentName}}/pulls)
 [![Automated Release Notes by gren](https://img.shields.io/badge/%F0%9F%A4%96-release%20notes-00B2EE.svg)](https://github-tools.github.io/github-release-notes/)
