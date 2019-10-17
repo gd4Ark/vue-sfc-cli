@@ -2,7 +2,7 @@
 
 [![Build Status](https://badgen.net/travis/FEMessage/vue-sfc-cli/master)](https://travis-ci.com/FEMessage/vue-sfc-cli)
 [![NPM Download](https://badgen.net/npm/dm/vue-sfc-cli)](https://www.npmjs.com/package/vue-sfc-cli)
-[![NPM Version](https://badgen.net/npm/v/vue-sfc-cli)](https://www.npmjs.com/package/vue-sfc-cli)
+[![NPM Version](https://badge.fury.io/js/vue-sfc-cli.svg)](https://www.npmjs.com/package/vue-sfc-cli)
 [![NPM License](https://badgen.net/npm/license/vue-sfc-cli)](https://github.com/FEMessage/vue-sfc-cli/blob/master/LICENSE)
 [![Automated Release Notes by gren](https://img.shields.io/badge/%F0%9F%A4%96-release%20notes-00B2EE.svg)](https://github-tools.github.io/github-release-notes/)
 
