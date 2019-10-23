@@ -15,7 +15,7 @@ let pkgName = ''
 /**
  * Prompt user for input to populate template files
  */
-let npmName = argv.get('npm')
+let npmName = argv.get('name')
 let ownerName = argv.get('owner')
 const OWNER_NAME = 'FEMessage'
 

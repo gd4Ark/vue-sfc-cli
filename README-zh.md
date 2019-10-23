@@ -61,9 +61,7 @@ yarn publish
 
 ### 参数选项
 
-```
--u, --upgrade
-```
+`-u`, `--upgrade`
 
 根据 template目录下模板，生成新的文件，更新到当前组件中。使用的是覆盖策略，默认覆盖的文件定义在 update-files.js。常用于使用最新版本vue-sfc-cli对旧组件的配置进行升级
 
@@ -72,7 +70,7 @@ yarn publish
 npx vue-sfc-cli -u
 ```
 
-`—files`
+`—-files`
 
 如果想更新额外的文件，可以传此选项，后接文件名，多个文件使用 `,` 分隔
 
@@ -80,12 +78,20 @@ npx vue-sfc-cli -u
 npx vue-sfc-cli -u --files package.json,.babelrc.js
 ```
 
-`—test` 
+`-—test` 
 
 生成一个测试的组件模板，常用于ci环境测试。
 
 ```
 npx vue-sfc-cli --test
+```
+
+`--name`, `--owner`
+
+以命令形式生成组件，跳过询问过程。它们通常成对出现。
+
+```
+npx vue-sfc-cli --name log-viewer --owner FEMessage
 ```
 
 ### 示例文档

@@ -66,9 +66,7 @@ yarn publish
 
 ### Options
 
-```
--u, --upgrade
-```
+`-u`, `--upgrade`
 
 According to the template files in the templates directory, new files will be generated and override the files with same name in current component directory. The default override files is defined in update-files.js. This option often used to upgrade the configuration of old components using the latest version of vue-sfc-cli：
 
@@ -77,7 +75,7 @@ According to the template files in the templates directory, new files will be ge
 npx vue-sfc-cli -u
 ```
 
-`—files`
+`—-files`
 
 If you want to update additional files, you can pass this option, multiple files use `,` to separate
 
@@ -85,12 +83,20 @@ If you want to update additional files, you can pass this option, multiple files
 npx vue-sfc-cli -u --files package.json,.babelrc.js
 ```
 
-`—test`
+`-—test`
 
 Generate a component template for testing, commonly used in CI .
 
 ```
 npx vue-sfc-cli --test
+```
+
+`--name`, `--owner`
+
+These two arguments are usually used together to generate component without prompt.
+
+```
+npx vue-sfc-cli --name log-viewer --owner FEMessage
 ```
 
 ### Writing Example
