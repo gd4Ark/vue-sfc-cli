@@ -11,6 +11,11 @@
 ## Table Of Contents
 
 - [Links](#links)
+- [注意事项](#注意事项)
+  - [环境需求](#环境需求)
+  - [Prettier and husky](#prettier-and-husky)
+  - [Stylelint](#stylelint)
+  - [Windows](#windows)
 - [使用教程](#使用教程)
   - [快速开始](#快速开始)
   - [参数选项](#参数选项)
@@ -22,13 +27,30 @@
     - [methods](#methods)
   - [引入第三方库](#引入第三方库)
   - [环境变量](#环境变量)
-  - [prettier and husky](#prettier-and-husky)
-  - [注意](#注意)
-- [环境需求](#环境需求)
 
 ## Links
 
 - [知乎文章](https://zhuanlan.zhihu.com/p/72590127)
+
+## 注意事项
+
+### 环境需求
+
+Node.js 8.x
+
+### Prettier and husky
+
+组件模板内置prettier, 可以在提交代码时格式化。
+
+注意的是需要先执行 `git init` 命令，之后再执行 `yarn` 安装依赖，否则提交钩子不生效。
+
+### Stylelint
+
+组件模板内置stylelint, 对 less/sass 支持友好, 但对 stylus 支持欠佳（不能写注释，否则会出错）
+
+### Windows
+
+不建议在Windows下生成组件, 因为.sh可能没有执行权限。 
 
 ## 使用教程
 
@@ -246,17 +268,3 @@ module.exports = {
   }
 }
 ```
-
-### prettier and husky
-
-组件模板内置prettier, 可以在提交代码时格式化。
-
-注意的是需要先执行 `git init` 命令，之后再执行 `yarn` 安装依赖，否则提交钩子不生效。
-
-### 注意
-
-不建议在Windows下生成组件,因为.sh可能没有执行权限。 
-
-## 环境需求
-
-Node.js 8.x

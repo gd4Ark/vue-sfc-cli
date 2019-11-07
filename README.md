@@ -13,6 +13,11 @@ It makes writing docs and demo easily, integrated with an automated github workf
 ## Table Of Contents
 
 - [Links](#links)
+- [Notice](#notice)
+  - [Requirement](#requirement)
+  - [Prettier and husky](#prettier-and-husky)
+  - [Stylelint](#stylelint)
+  - [Windows](#windows)
 - [Tutorial](#tutorial)
   - [Quick Start](#quick-start)
   - [Options](#options)
@@ -24,15 +29,41 @@ It makes writing docs and demo easily, integrated with an automated github workf
     - [Methods](#methods)
   - [Working with third-party library](#working-with-third-party-library)
   - [Environment variable](#environment-variable)
-  - [Prettier and husky](#prettier-and-husky)
-  - [Notice](#notice)
-- [requirement](#requirement)
 - [Contributors](#contributors)
 
 ## Links
 
 - [medium article](https://medium.com/deepexi/reveal-the-secret-of-vue-sfc-cli-69f0f21dbad3)
 - [中文文档](./README-zh.md)
+
+## Notice
+
+### Requirement
+
+Node.js 8.x
+
+### Prettier and husky
+
+The component template has built-in prettier and husky setup that can format code when you commit.
+
+However, you need to execute commands as following, otherwise the commit hook will not take effect:
+
+```sh
+npx vue-sfc-cli
+
+# git init must run before yarn 
+git init
+
+yarn
+```
+
+### Stylelint
+
+The component template has built-in stylelint, which perfectly supports less/sass, but not stylus(it cannot have comment)
+
+### Windows
+
+It is not recommended to generate components under Windows, cause `.sh` files may lost execution permissions.
 
 ## Tutorial
 
@@ -250,20 +281,6 @@ module.exports = {
   }
 }
 ```
-
-### Prettier and husky
-
-The component template has a built-in prettier and husky setup that can format code when you commit.
-
-However, you need to execute the git init command before running yarn ,otherwise the commit hook will not take effect.
-
-### Notice
-
-It is not recommended to generate components under Windows, as `.sh` files may lost execution permissions.
-
-## requirement
-
-Node.js 8.x
 
 ## Contributors
 
