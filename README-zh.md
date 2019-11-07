@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/FEMessage/vue-sfc-cli.svg?branch=master)](https://travis-ci.com/FEMessage/vue-sfc-cli)
 [![NPM Download](https://img.shields.io/npm/dm/vue-sfc-cli.svg)](https://www.npmjs.com/package/vue-sfc-cli)
-[![NPM Version](https://img.shields.io/npm/v/vue-sfc-cli.svg)](https://www.npmjs.com/package/vue-sfc-cli)
+[![NPM Version](https://badge.fury.io/js/vue-sfc-cli.svg)](https://www.npmjs.com/package/vue-sfc-cli)
 [![NPM License](https://img.shields.io/npm/l/vue-sfc-cli.svg)](https://github.com/FEMessage/vue-sfc-cli/blob/master/LICENSE)
 [![Automated Release Notes by gren](https://img.shields.io/badge/%F0%9F%A4%96-release%20notes-00B2EE.svg)](https://github-tools.github.io/github-release-notes/)
 
@@ -11,6 +11,11 @@
 ## Table Of Contents
 
 - [Links](#links)
+- [注意事项](#注意事项)
+  - [环境需求](#环境需求)
+  - [Prettier and husky](#prettier-and-husky)
+  - [Stylelint](#stylelint)
+  - [Windows](#windows)
 - [使用教程](#使用教程)
   - [快速开始](#快速开始)
   - [参数选项](#参数选项)
@@ -22,13 +27,30 @@
     - [methods](#methods)
   - [引入第三方库](#引入第三方库)
   - [环境变量](#环境变量)
-  - [prettier and husky](#prettier-and-husky)
-  - [注意](#注意)
-- [环境需求](#环境需求)
 
 ## Links
 
 - [知乎文章](https://zhuanlan.zhihu.com/p/72590127)
+
+## 注意事项
+
+### 环境需求
+
+Node.js 8.x
+
+### Prettier and husky
+
+组件模板内置prettier, 可以在提交代码时格式化。
+
+注意的是需要先执行 `git init` 命令，之后再执行 `yarn` 安装依赖，否则提交钩子不生效。
+
+### Stylelint
+
+组件模板内置stylelint, 对 less/sass 支持友好, 但对 stylus 支持欠佳（不能写注释，否则会出错）
+
+### Windows
+
+不建议在Windows下生成组件, 因为.sh可能没有执行权限。 
 
 ## 使用教程
 
@@ -61,9 +83,7 @@ yarn publish
 
 ### 参数选项
 
-```
--u, --upgrade
-```
+`-u`, `--upgrade`
 
 根据 template目录下模板，生成新的文件，更新到当前组件中。使用的是覆盖策略，默认覆盖的文件定义在 update-files.js。常用于使用最新版本vue-sfc-cli对旧组件的配置进行升级
 
@@ -72,7 +92,7 @@ yarn publish
 npx vue-sfc-cli -u
 ```
 
-`—files`
+`—-files`
 
 如果想更新额外的文件，可以传此选项，后接文件名，多个文件使用 `,` 分隔
 
@@ -80,12 +100,20 @@ npx vue-sfc-cli -u
 npx vue-sfc-cli -u --files package.json,.babelrc.js
 ```
 
-`—test` 
+`-—test` 
 
 生成一个测试的组件模板，常用于ci环境测试。
 
 ```
 npx vue-sfc-cli --test
+```
+
+`--name`, `--owner`
+
+以命令形式生成组件，跳过询问过程。它们通常成对出现。
+
+```
+npx vue-sfc-cli --name log-viewer --owner FEMessage
 ```
 
 ### 示例文档
@@ -240,17 +268,3 @@ module.exports = {
   }
 }
 ```
-
-### prettier and husky
-
-组件模板内置prettier, 可以在提交代码时格式化。
-
-注意的是需要先执行 `git init` 命令，之后再执行 `yarn` 安装依赖，否则提交钩子不生效。
-
-### 注意
-
-不建议在Windows下生成组件,因为.sh可能没有执行权限。 
-
-## 环境需求
-
-Node.js 8.x
