@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://github.com/FEMessage/vue-sfc-cli/compare/v1.10.12...v1.11.0) (2019-11-07)
+
+
+### Features
+
+* 模板增加eslint配置 ([#98](https://github.com/FEMessage/vue-sfc-cli/issues/98)) ([7a39b31](https://github.com/FEMessage/vue-sfc-cli/commit/7a39b31))
+* 模板默认绑定 attrs & listeners ([#99](https://github.com/FEMessage/vue-sfc-cli/issues/99)) ([bbd729e](https://github.com/FEMessage/vue-sfc-cli/commit/bbd729e))
+
+
+
 ### [1.10.12](https://github.com/FEMessage/vue-sfc-cli/compare/v1.10.11...v1.10.12) (2019-10-17)
 
 
