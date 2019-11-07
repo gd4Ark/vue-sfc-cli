@@ -1,5 +1,5 @@
 <template>
-  <div class="{{componentName}}">
+  <div class="{{componentName}}" v-bind="$attrs" v-on="$listeners">
     hello
   </div>
 </template>
