@@ -18,9 +18,9 @@
       "contributions": [
         "code",
         "content",
-				"translation",
-				"ideas",
-				"review"
+        "translation",
+        "ideas",
+        "review"
       ]
     },
     {
@@ -31,8 +31,8 @@
       "contributions": [
         "code",
         "bug",
-				"test",
-				"maintenance"
+        "test",
+        "maintenance"
       ]
     },
     {
@@ -41,7 +41,8 @@
       "avatar_url": "https://avatars3.githubusercontent.com/u/19591950?v=4",
       "profile": "https://donaldshen.github.io/portfolio",
       "contributions": [
-        "code"
+        "code",
+        "test"
       ]
     },
     {
@@ -54,5 +55,6 @@
       ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "skipCi": true
 }
