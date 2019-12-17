@@ -75,7 +75,7 @@ if (!isUpgrade()) {
   fileActions.move({
     patterns: {
       gitignore: '.gitignore',
-      'package-json': 'package.json',
+      '_package.json': 'package.json',
       'src/component.vue': `src/${componentName}.vue`
     }
   })
