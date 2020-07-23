@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.11.4](https://github.com/FEMessage/vue-sfc-cli/compare/v1.11.3...v1.11.4) (2020-07-23)
+
+
+### Bug Fixes
+
+* notify error ([#117](https://github.com/FEMessage/vue-sfc-cli/issues/117)) ([66b6df7](https://github.com/FEMessage/vue-sfc-cli/commit/66b6df7))
+
+
+
 ### [1.11.3](https://github.com/FEMessage/vue-sfc-cli/compare/v1.11.2...v1.11.3) (2020-07-14)
 
 
