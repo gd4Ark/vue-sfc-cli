@@ -1,7 +1,5 @@
 #!/bin/sh
 # https://stackoverflow.com/questions/13872048/bash-script-what-does-bin-bash-mean
-set -e
-
 echo "1/5: checking TRAVIS_TEST_RESULT"
 if [ "$TRAVIS_TEST_RESULT" != "0" ]
 then
@@ -13,11 +11,19 @@ ORG_NAME=$(echo "$TRAVIS_REPO_SLUG" | cut -d '/' -f 1)
 REPO_NAME=$(echo "$TRAVIS_REPO_SLUG" | cut -d '/' -f 2)
 
 echo "2/5: pushing commit and tag to github"
+# 该命令很可能报错，但不影响实际进行，因而不能简单地在脚本开头 set -e 
 git remote add github https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git > /dev/null 2>&1
 git push github HEAD:master --follow-tags
 
 echo "3/5: generating github release notes"
 GREN_GITHUB_TOKEN=$GITHUB_TOKEN yarn release
+
+# 避免发送错误信息
+if [ $? -ne 0 ]
+then
+  echo "gren fails, bye"
+  exit 1
+fi
 
 echo "4/5: downloading github release info"
 url=https://api.github.com/repos/$TRAVIS_REPO_SLUG/releases/latest

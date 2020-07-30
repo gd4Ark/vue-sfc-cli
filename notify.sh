@@ -1,6 +1,4 @@
 #!/bin/sh
-set -e
-
 echo "checking TRAVIS_TEST_RESULT"
 if [ "$TRAVIS_TEST_RESULT" != "0" ]
 then
@@ -17,6 +15,12 @@ git push github HEAD:master --follow-tags
 
 echo "generating github release notes"
 GREN_GITHUB_TOKEN=$GITHUB_TOKEN yarn release
+
+if [ $? -ne 0 ]
+then
+  echo "gren fails, bye"
+  exit 1
+fi
 
 echo "downloading github release info"
 url=https://api.github.com/repos/$TRAVIS_REPO_SLUG/releases/latest
