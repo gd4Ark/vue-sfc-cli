@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.12.0](https://github.com/FEMessage/vue-sfc-cli/compare/v1.11.6...v1.12.0) (2020-08-13)
+
+
+### Features
+
+* 赋能自动化 npm 配套设施 ([#121](https://github.com/FEMessage/vue-sfc-cli/issues/121)) ([7088701](https://github.com/FEMessage/vue-sfc-cli/commit/7088701))
+
+
+
 ### [1.11.6](https://github.com/FEMessage/vue-sfc-cli/compare/v1.11.5...v1.11.6) (2020-07-30)
 
 
